@@ -3,3 +3,4 @@ bootstrap
 backupdoc
 media
 *.pyc
+env
