@@ -1,0 +1,32 @@
+{% extends "main/base.html" %}
+
+{% block title %} {{ news.short_name }} {% endblock title %}
+
+{% block caruosel %} 
+  <div class=>
+    <h1 class="brandHeader">{{ news.title }}</h1>
+    <hr>
+  </div>  
+{% endblock caruosel%}
+
+{% block hello %}
+<div class="back" style="padding-top:50px">
+<div class="container"> 
+	<div lass="blogtags">
+	  <p><span class="glyphicon glyphicon-time"></span> {{ news.pub_date }}
+	</div>
+	<div class="thumbnail">
+	  <img alt="{{ news.photo.description }}" src="{{ news.photo.get_blogsize_url }}" %}>
+	</div>
+	<div class='blog'>
+	  {% autoescape off %} <p>{{ news.content }}</p> {% endautoescape %}
+	</div>
+  <hr>
+</div><!-- col-lg-12-->
+</div>
+{% endblock hello %}
+
+{% block parts %} {% endblock parts %}
+
+{% block gallery %}{% endblock gallery %}
+    

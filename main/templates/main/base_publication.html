@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block caruosel %}
+        	<h1 class="brandHeader">Опубликованные статьи</h1>
+<div class="content" style="margin-top:0px; margin-bottom:0px;">
+<div class="contr offset1" style="width:85%">
+                <div class="row">
+                	{%for i in publication%}
+                        <div class="col-md-15 offset1 publication">
+                        	<img class="col-md-7" src="{{i.pub_img.get_blogsize_url}}" alt="">
+                                <div class=" col-md-11 contr_text">
+					<div class="row">
+						<div class="col-md-20">
+                                			<h2 class="brandHeader">{{i.pub_name}}</h2>
+						</div>
+						<div class="col-md-15 offset1">
+							<p>{{i.pub_autor}}</p>
+						</div>
+					</div>
+                                        <p>{{i.content}}</p>
+                                        <p>{{i.pub_link}}</p>
+                                </div>
+                        </div>
+                        {%endfor%}
+                </div>
+	</div>
+</div>
+{% endblock caruosel %}

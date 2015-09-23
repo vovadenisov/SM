@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+
+{% block title %} {{ project.short_name }} {% endblock title %}
+
+{% block caruosel %} 
+  <div class='blog'>
+    <h1 class="brandHeader">{{ project.name }}</h1>
+    <hr>
+  </div>  
+  <div class="container">
+{% endblock caruosel%}
+
+{% block hello %} 
+<div class="thumbnail">
+  <img alt="{{ project.photo.description }}" src="{{ project.photo.get_blogsize_url }}" %}>
+</div>
+<div class='blog'>
+  {% autoescape off %} <p>{{ project.content }}</p> {% endautoescape %}
+</div>
+  <hr>
+</div><!-- col-lg-12-->
+{% endblock hello %}
+
+{% block parts %} {% endblock parts %}
+
+{% block gallery %}{% endblock gallery %}

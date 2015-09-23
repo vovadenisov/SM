@@ -1,0 +1,32 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %} decan timetable {% endblock title %}
+
+{% block caruosel %}
+<h1 class="brandHeader">Рассиписание зам. деканов</h1>
+<div class="contant" style = "margin-top:0px; margin-bottom:0px;background-color:white; min-height:100%">
+<div class="space"></div>
+<div class="col-md-11 offset4">
+{% for i in decans %}
+<div class="row">
+	<div class = "col-md-7">
+	<p>{{i.date}}</p>
+	</div>
+	<div class="col-md-5 offset2">
+	<p>{{i.decan}} </p>
+	</div>
+</div>
+{%endfor%}
+</div>
+</div>
+{% endblock caruosel%}
+
+{% block hello %} {% endblock hello %}
+
+{% block parts %} {% endblock parts %}
+
+{% block gallery %}
+{% endblock gallery %}
+

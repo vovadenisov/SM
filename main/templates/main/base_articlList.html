@@ -1,0 +1,46 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %} List of articles {% endblock title %}
+
+{% block caruosel %} {% endblock caruosel%}
+
+{% block hello %}
+  <div class='blog'>
+    <h1 class="brandHeader">Статьи</h1>
+    <hr>
+  </div>  
+  <div class="container">
+    <div class="row">
+
+{% endblock hello %}
+
+
+{% block parts %} 
+
+        {% for v in articlesList %}
+          <div class="row blog">
+            <h1> <a href={% url 'main:article' v.short_name %}>{{ v.title }}</a></h1><hr>
+              <div class="col-lg-18 col-xs-offset-2 thumbnail">
+                  <img alt="{{ v.photo.description }}" src="{{ v.photo.get_blogsize_url }}" %}>
+                  <div class="caption blog">
+                    <div lass="blogtags">
+                        <p><span class="glyphicon glyphicon-time"></span> {{ v.pub_date }} | <span class="glyphicon glyphicon-comment"></span> <a href=#>Comments</a> | <span class="glyphicon glyphicon-user"></span> <a href=#>{{ v.author }}</a></p>
+                    </div>
+                    <hr>
+                    {% autoescape off %}<p>{{ v.description }}</p> {% endautoescape %}
+                  <p><span class="glyphicon glyphicon-tags"></span> <a href=#>tag1</a> | <a href=#>tag2</a> |</p> 
+                    <hr>
+                  </div>
+            </div>
+          </div>
+      {% endfor %}
+
+{% endblock parts %}
+
+{% block gallery %}
+
+    </div><!-- container-row-->
+  </div> <!-- container-fluid-->
+{% endblock gallery %}

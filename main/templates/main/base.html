@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Анастасия" >
+    <title>{% block title %} MSB Fond {% endblock title %}</title>
+    {% load staticfiles %}
+    <!-- core CSS -->
+    <link rel="stylesheet" type="text/css" href={% static 'main/css/bootstrap2.min.css' %} />
+    <link href={% static 'main/css/Custom_styles.css' %} rel="stylesheet">
+    <link href={% static 'main/css/style.css' %} rel="stylesheet">
+    <link href={% static 'main/css/media.css' %} rel="stylesheet">
+    <script src={% static 'main/js/jquery.min.js' %}></script>
+</head>
+<body>
+	<div class="container-fluid" style="">
+
+		{% block menu%}         
+		  <div id="fixed-menu" class="container">
+		    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		      <div class="container-fluid">
+		        <div class="navbar-header">
+		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <a class="navbar-brand hidden-sm" href={% url 'main:index'%} style="font-size: 30px; padding-top: 17px; padding-left: 100px">НУК СМ</a>
+		        </div>
+		        <div class="collapse navbar-collapse">
+		          <ul class="nav navbar-nav navbar-right">
+				<li class="{%if isMGTU%} active {%endif%} "> <a href="http://www.bmstu.ru/"> МГТУ ИМ Н.Э. Баумана </a> </li>
+				<li class="dropdown {% if isDecan %}active{% endif %}"><a href="#"  class="dropdown-toggle" data-toggle="dropdown">деканат<b class="caret"></b></a>
+				    <ul class="dropdown-menu">
+                                        <li><a href={% url 'main:decan_time' %}>расписание зам. деканов</a></li>
+                                        <li><a href="http://www.bmstu.ru/mstu/undergraduate/schedule/">Учебное рассписание</a></li>
+					<li><a href={% url 'main:about_decan' %}>о деканате</a></li>
+                                    </ul>
+				</li>
+				
+				<li class="{% if isAbitu %}active{% endif %}"><a href={% url 'main:abitu'%}>абитуриентам </a>
+				</li>
+
+				<li class="dropdown {% if isLib %}active{% endif %}"><a href="" class="dropdown-toggle" data-toggle="dropdown">Материалы<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href=>Видеоматериалы</a></li>
+                                        <li><a href={% url 'main:publication'%}>Публикации</a></li>
+                                        <li><a href={% url 'main:Didjest_theme'%}>Дайджесты прессы</a></li>
+					<li><a href={% url 'main:newsList'%}>Новости</a></li>
+                                    </ul>				
+				</li>
+
+				<li class="{% if isContacts %}active{% endif %}"><a href={% url 'main:contacts'%}>Контакты</a></li>
+
+				<li class="{% if isLK %}active{% endif %}"><a href={% url 'main:LK'%}>личный кабинет</a>
+
+                                </li>
+
+		           <!--  <li class="dropdown"> <a href={% url 'main:index'%} class="dropdown-toggle" data-toggle="dropdown">НУК СМ <b class="caret"></b> </a>
+				 <ul class="dropdown-menu">
+                                        <li><a href=>структура</a></li>
+					<li><a href=>научные направления</a></li>
+                              </ul>
+			    </li>
+			    <li class="{}"><a href={% url 'main:index'%}>НИИ СМ</a></li>
+			    <li class="{}"><a href={% url 'main:index'%} class="dropdown-toggle" data-toggle="dropdown">Факультет СМ <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+                                        <li><a href="">факультет СМ</a></li>
+                                        <li class="{}"><a href={% url 'main:index'%} class="dropdown-toggle" data-toggle="dropdown">деканат </a></li>
+                                </ul>
+			    </li>
+		            <li class="dropdown {% if idDepartment %} active {% endif %} ">
+                  <a href={% url 'main:projectList'%} class="dropdown-toggle" data-toggle="dropdown">Подразделения<b class="caret"></b></a>
+		              <ul class="dropdown-menu">
+
+		              	{% for v in departmentsList %}
+		                	<li><a href={% url 'main:department' v.short_name %}>{{ v.name }}</a></li>
+		                {% endfor %}
+		              </ul>
+		            </li>
+		            <li class="{% if isNewsList %}active{% endif %}"><a href={% url 'main:newsList'%} >События</a></li>
+
+		            <li class="{% if isBmstu %}active{% endif %}"><a href={% url 'main:bmstu'%}>Альма-матер</a></li>
+
+                 <li class="{% if isContacts %}active{% endif %}"><a href={% url 'main:contacts'%}>Контакты</a></li>
+                 <li class=""><a href=>Поступающим</a></li>
+		 <li class=""><a href=>Студентам</a></li>
+		<li class=""><a href=>Сотрудникам</a></li> -->
+			  <!--<li><a href="{% if isProjectList %}active{% endif %}"><a href={% url 'main:contacts'%}>Контакты</a></li>-->
+		          <!-- <li><a href="#" data-toggle="modal" data-target="#SignInModal"> Присоединяйся</a></li> -->
+		          </ul>
+		        </div>
+		      </div>
+		    </nav>      
+		  </div>
+
+
+     <!--<div id="trensperent-menu" class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand hidden-sm" href={% url 'main:index'%} style="font-size: 50px; padding-top: 50px; padding-left: 100px">МСБ</a>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right" style="height: 100%;" >
+
+                <li class="{% if isIndex %}active{% endif %}"><a href={% url 'main:index'%}>Главная</a></li>
+
+                <li class="dropdown {% if idDepartment %} active {% endif %} ">
+
+                  <a href={% url 'main:projectList'%} class="dropdown-toggle" data-toggle="dropdown">Подразделения<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+
+                    {% for v in departmentsList %}
+                      <li><a href={% url 'main:department' v.short_name %}>{{ v.name }}</a></li>
+                    {% endfor %}
+
+                  </ul>
+
+                </li>
+                <li class="{% if isNewsList %}active{% endif %}"><a href={% url 'main:newsList'%} >События</a></li>
+
+                <li class="{% if isBmstu %}active{% endif %}"><a href={% url 'main:bmstu'%}>Альма-матер</a></li>
+
+                 <li class="{% if isContacts %}active{% endif %}"><a href={% url 'main:contacts'%}>Контакты</a></li>
+                <!--<li><a href="{% if isProjectList %}active{% endif %}"><a href={% url 'main:contacts'%}>Контакты</a></li>-->
+                <!--<li><a href="#" data-toggle="modal" data-target="#SignInModal"> Присоединяйся</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>      
+      </div>-->
+</div>
+		{% endblock menu %}
+
+		{% block caruosel %} {% endblock caruosel%} 
+		
+		{% block hello %} {% endblock hello %} 
+
+		{% block parts %} {% endblock parts %}
+
+		{% block gallery %} {% endblock gallery %}
+		
+		{% block footer%} 
+      <div class="brand-footer row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0">
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-10">
+          <h2> НАУЧНО-УЧЕБНЫЙ  КОМПЛЕКС  "СПЕЦИАЛЬНОЕ  МАШИНОСТРОЕНИЕ"</h2>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-10">
+          <div class="col-lg-10 col-md-10 col-sm-10 ">
+          {% for v in contacts.phone_number.all %}
+            <h4>{{ v.phone_number }}</h4>
+          {% endfor %}
+            {% for v in contacts.emails.all %}
+            <h4> {{ v.email }} </h4>
+          {% endfor %}
+          </div>
+        <div class="ccol-lg-10 col-md-10 col-sm-10 ">
+          <h4></h4>
+          <h4>{{ contacts.adress }} </h4>
+          <!-- Yandex.Metrika informer -->
+          <!-- <a href="https://metrika.yandex.ru/stat/?id=25166426&amp;from=informer"
+          target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/25166426/3_0_209FFFFF_007FFFFF_1_pageviews"
+          style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:25166426,lang:'ru'});return false}catch(e){}"/></a> -->
+          <!-- /Yandex.Metrika informer -->
+
+          <!-- Yandex.Metrika counter -->
+         <script type="text/javascript">
+          (function (d, w, c) {
+              (w[c] = w[c] || []).push(function() {
+                  try {
+                      w.yaCounter25166426 = new Ya.Metrika({id:25166426,
+                              clickmap:true,
+                              trackLinks:true,
+                              accurateTrackBounce:true});
+                  } catch(e) { }
+              });
+
+              var n = d.getElementsByTagName("script")[0],
+                  s = d.createElement("script"),
+                  f = function () { n.parentNode.insertBefore(s, n); };
+              s.type = "text/javascript";
+              s.async = true;
+              s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+              if (w.opera == "[object Opera]") {
+                  d.addEventListener("DOMContentLoaded", f, false);
+              } else { f(); }
+          })(document, window, "yandex_metrika_callbacks");
+          </script>
+          <noscript><div><img src="//mc.yandex.ru/watch/25166426" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+          <!-- /Yandex.Metrika counter -->
+
+          <!-- /Google counter -->
+          <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-51608213-1', 'ibcfund.ru');
+            ga('send', 'pageview');
+
+          </script>
+          <!-- /Google counter -->
+          
+        </div>
+        </div>
+      </div>
+		{% endblock footer%}
+  </div>
+
+{% block signin_modal %} 
+<!-- SIGN IN Modal -->
+  <div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"></h4>
+        </div>
+        <h4 style="padding:50px;">{{ contacts.contact_information }}</h4>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+          <!-- <button type="button" class="btn btn-info">Написать письмо</button>-->            
+          <a class="btn btn-info" href="mailto:Ibcfund@mail.ru?subject=Информационное письмо">Напиьсать письмо</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock signin_modal %}
+
+	<!-- JavaScript -->
+    <script src={% static 'main/js/bootstrap.min.js' %}></script>
+    <script src={% static 'main/js/customScript.js' %}></script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %} decan timetable {% endblock title %}
+
+{% block caruosel %}
+<h1 class="brandHeader">{{about.title}}</h1>
+<div class="row contant" style = "margin-top:0px; margin-bottom:0px;background-color:white; min-height:100%">
+<div class="space"></div>
+<div class="col-md-11 offset3">
+<p>
+{% autoescape off %}
+	{{about.content}}
+{% endautoescape %}
+</p>
+</div>
+</div>
+</div>
+{% endblock caruosel%}
+
+{% block hello %} {% endblock hello %}
+
+{% block parts %} {% endblock parts %}
+
+{% block gallery %}
+{% endblock gallery %}
+

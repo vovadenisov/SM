@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block caruosel %}
+                <h1 class="brandHeader">Опубликованные дайджесты</h1>
+<div class="content" style="margin-top:0px;min-height:100%; margin-bottom:0px;">
+<div class="offset1" style="width:85%">
+                <div class="row">
+                        <div class="col-md-15 offset4 publication">
+                                {% for i in didjests %}
+                                <div class="row" style="margin-top:20px">
+                                 <a href="{{i.link}}"><div class = "col-md-7 btn btn-info">{{i.name}}</div></a>
+                                </div>
+                                {% endfor %}
+                        </div>
+                </div>
+        </div>
+</div>
+
+{% endblock caruosel %}
+

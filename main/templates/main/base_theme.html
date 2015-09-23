@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block caruosel %}
+                <h1 class="brandHeader">Публикуемые темы</h1>
+<div class="content" style="margin-top:0px; margin-bottom:0px;">
+<div class="contr offset1" style="width:85%">
+                <div class="row">
+                        {%for i in theme%}
+                        <div class="col-md-15 offset1 publication">
+                                <a href=""><div class = "col-md-6 offset1 btn btn-info">
+					{{i.title}}
+				</div></a>
+                        </div>
+                        {%endfor%}
+                </div>
+        </div>
+</div>
+{% endblock caruosel %}
+

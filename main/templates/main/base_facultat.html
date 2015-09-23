@@ -1,0 +1,63 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block caruosel %}
+
+{% endblock caruosel %}
+
+
+{% block hello %}
+    <div class="row brand">
+      <h1 class="brandHeader">Факультет "Специальное машиностроение"</h1>
+       <!-- <div class="col-lg-9 col-md-8 hidden-xs hidden-sm thumbnail" style="padding-left: 10%;">
+                                        <img alt="..." src="{{ memorandum.photo.get_blogsize_url }}">
+        </div>
+        <div class="col-lg-11 col-md-12 col-sm-20">
+          {% autoescape off %}<p> {{ memorandum.description }}<p>{% endautoescape %}
+        </div>
+	<hr>-->
+    </div>
+{% endblock hello %}
+
+{% block parts %}
+        <div class="space"></div>
+        <div class="content" style="margin-top:0px;">
+               	 <div class="contr offset1" style="width:85%">
+               		 <div class="row">
+<ul class="col-md-20 navl">
+      				{% for v in units %}
+					<li style="width:25%">
+						
+						<a href="{{ v.url }}">
+						<div style="height:120px">
+						<h3 class="blue-row">{{ v.name }}</h3>
+                                                <p style="font-size:12px"> {{ v.description }}</p>
+						</div>
+						</a>
+						
+					</li>
+        			<!--<div style = "min-height:180px" class="col-lg-5 col-md-10 col-sm-10" >
+          				<div class="thumbnail" >
+            				<img alt="{{ v.photo.Caption }}"  src="{{ v.photo.get_gallerysize_url }}">
+            					<div class="caption">
+              						<h3 class="blue-row">{{ v.name }}</h3>
+              						<p> {{ v.description }}</p>
+              						<a href="{{ v.url }}" class="btn btn-info" role="button">Перейти на сайт</a>
+            					</div>
+          				</div>
+        			</div>
+        			{% if forloop.counter0 = 1 %} <div class="clearfix visible-sm visible-md"></div> {% endif %}
+        			{% if forloop.counter0 = 3 %} <div class="clearfix visible-lg"></div> {% endif %}
+-->
+      				{% endfor %}
+</ul>
+    			</div>
+		</div>
+	</div>
+{% endblock parts %}
+
+{% block gallery %}
+
+{% endblock gallery %}
+

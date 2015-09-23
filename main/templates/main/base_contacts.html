@@ -1,0 +1,39 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %} {{ contacts.title }}  {% endblock title %}
+{% block caruosel %}
+    
+		<div class='row' style="height:100%">
+			<div class="col-md-10">				
+				
+					<iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.3287022684785!2d37.69006549999999!3d55.7701628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b53562ec1978e9%3A0xbf1837b90b95cb80!2z0JPQvtGB0L_QuNGC0LDQu9GM0L3Ri9C5INC_0LXRgC4sIDEwLCDQnNC-0YHQutCy0LAsIDEwNTAwNQ!5e0!3m2!1sru!2sru!4v1437031588275" width="100%" height="700" frameborder="0" style="border:0"></iframe>
+								
+			</div>
+			<div class="col-md-10" style="height:500px">
+				<!-- <div class ="row infoblock">
+					<p>{{ contacts.title }}</p>
+				</div> -->
+				<div class="row infoblock">
+
+					{% autoescape off %}
+						<p>{{ contacts.bank_details }}</p>
+					{% endautoescape %}
+					
+					<hr>
+					{% for v in contacts.phone_number.all %}
+						<p>{{ v.phone_number }}</p>
+					{% endfor %}
+					<hr>
+					{% for v in contacts.emails.all %}
+						<h1> {{ v.email }} </h1>
+					{% endfor %}
+					<hr>
+					{% for v in contacts.addresses.all %}
+						<h1> {{ v.address }} </h1>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+{% endblock caruosel%}

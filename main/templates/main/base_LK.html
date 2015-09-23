@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block caruosel %}
+<div class="content" style="margin-top:0px;min-height:100%; margin-bottom:0px;">
+<div class="space"></div>
+	<div class="col-md-17 offset1">
+                <div class="row">
+			<div class="col-md-10">
+			<div class = "col-md-20" style="width: 100%;  border: 1px solid rgb(193, 193, 193); padding: 15px;  box-shadow: 1px 1px 1px;">
+				<div class = "row">
+				<div class = "col-md-6"><h2>Имя</h2></div>
+				<div class = "col-md-6 offset4"><h2>Пупкин</h2></div>
+				</div>
+				<div class = "row">
+                                <div class = "col-md-6"><h2>Фамилия</h2></div>
+				 <div class = "col-md-6 offset4"><h2>Василий</h2></div>
+                                </div>
+                                <div class = "row">
+                                <div class = "col-md-6"><h2>Отчество</h2></div>
+				<div class = "col-md-6 offset4"><h2>Александрович</h2></div>
+                                </div>
+                                <div class = "row">
+                                <div class = "col-md-6"><h2>№ зачетки</h2></div>
+				<div class = "col-md-6 offset4"><h2>09М000</h2></div>
+                                </div>
+				<div class = "row">
+                                <div class = "col-md-6"><h2>Зам. Декана</h2></div>
+				<div class = "col-md-6 offset4"><h2>Иванов С.В.</h2></div>
+                                </div>
+			</div>
+			</div>
+			<div class = "col-md-8 offset1">
+				<div class="row">
+				<div class="btn-group offset4" style="margin-top:50px">
+  					<a class="btn dropdown-toggle btn-primary" style="font-size:19px" data-toggle="dropdown" href="#">Выберите справку<span class="caret"></span></a>
+  					<ul class="dropdown-menu">
+    						<li><a href="#">Справка по месту требования</a></li>
+                                                <li><a href="#">Справка полная о студенте с гербовой печатью</a></li>
+                                                <li><a href="#">Справка в военкомат форма - 2</a></li>
+                                                <li><a href="#">Справка вызов с предприятия на период сессии</a></li>
+  					</ul>
+				</div>
+				</div>
+				<div class="row">
+				 <div class="col-md-20" style="margin-top:30px; margin-bottom:30px">
+                                        <p>Справка выдается на 3-й день после подтверждения о получении заявки с 10.00 -17.00.</p>
+                                </div>
+				</div>
+				<a href="http://www.bmstu.ru/mstu/undergraduate/schedule/"><div class="btn btn-primary offset4" style="font-size:28px">Рассписание</div></a>
+			</div>
+                </div>
+        </div>
+</div>
+{% endblock caruosel %}
+
