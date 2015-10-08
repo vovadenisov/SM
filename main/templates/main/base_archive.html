@@ -3,19 +3,22 @@
 {% load staticfiles %}
 
 {% block caruosel %}
-                <h1 class="brandHeader">Годы публикации дайджеста</h1>
+<h1 class="brandHeader">Годы публикации дайджеста</h1>
 <div class="content" style="margin-top:0px;min-height:100%; margin-bottom:0px;">
-<div class="offset1" style="width:85%">
-                <div class="row">
-                        <div class="col-md-15 offset4 publication">
-                                {% for i in didjest_year %}
-				<div class="row" style="margin-top:20px">
-                                 <a href="/didjest_list/{{i.pk}}/"><div class = "col-md-7 btn btn-info">{{i.year}}</div></a>
-				</div>
-                                {% endfor %}
-                        </div>
+    <div class="offset1" style="width:85%">
+        <div class="row">
+            <div class="col-md-15 offset4 publication">
+                <div class="row" style="margin-top:20px">
+                    <a href="/Didjest_theme/"><div class = "col-md-7 btn btn-info">Назад</div></a>
                 </div>
+                {% for i in didjest_year %}
+                    <div class="row" style="margin-top:20px">
+                        <a href="/didjest_list/{{i.pk}}/"><div class = "col-md-7 btn btn-info">{{i.year}}</div></a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
+    </div>
 </div>
 
 {% endblock caruosel %}

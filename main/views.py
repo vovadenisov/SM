@@ -183,26 +183,25 @@ def news(request, news_id):
 
 
 def didjest_list(request, id):
-    # print "2"
-    # didjest = get_object_or_404(Didjest_year, pk = id)
-    # print "1"
-    didjests= Didjest.objects.all().order_by('-number')
+    didjests= Didjest.objects.filter(year__pk = id).order_by('-number')
     context = {
             'isLib': True,
-            'didjests': didjests
+            'didjests': didjests,
+            'prew': id
     }
     context.update(getDefaultContext(request))
     return render(request, 'main/base_didjests.html', context)
 
+
 def didjest_year(request, id):
-        didjest = get_object_or_404(Didjest_theme, pk = id)
-	didjest_list = didjest.didjest_year_set.all().order_by('-year')
-        context = {
-                'isLib': True,
-                'didjest_year': didjest_list
-        }
-        context.update(getDefaultContext(request))
-        return render(request, 'main/base_archive.html', context)
+    didjest = get_object_or_404(Didjest_theme, pk = id)
+    didjest_list = didjest.didjest_year_set.all().order_by('-year')
+    context = {
+        'isLib': True,
+        'didjest_year': didjest_list,
+    }
+    context.update(getDefaultContext(request))
+    return render(request, 'main/base_archive.html', context)
 
 def newsList(request):
 	newsList = News.objects.filter(isFavorite = True).order_by('-pub_date')[:5]
