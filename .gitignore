@@ -4,4 +4,4 @@ backupdoc
 media
 *.pyc
 env
-.idea/*
+/.idea/*
