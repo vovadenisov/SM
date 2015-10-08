@@ -71,11 +71,6 @@ class Didjest(models.Model):
     def __unicode__(self):
         return self.name
 
-    def get_file(self):
-        print"get_file"
-        print(self.link.path)
-        return self.link.path
-
 
 class Youth_project(models.Model):
     short_name = models.CharField(max_length=100)
