@@ -161,6 +161,7 @@ def project(request, project):
 	context.update(getDefaultContext(request))
 	return render(request, 'main/' + project.template, context)
 
+
 def projectList(request):
 	projectsList = Projects.objects.all()[:10]
 	context = {
@@ -169,6 +170,7 @@ def projectList(request):
 	}
 	context.update(getDefaultContext(request))
 	return render(request, 'main/base_projectList.html', context)
+
 
 def news(request, news_id):
 	news = get_object_or_404(News, pk = news_id)
@@ -179,15 +181,18 @@ def news(request, news_id):
 	context.update(getDefaultContext(request))
 	return render(request, 'main/base_news.html', context)
 
+
 def didjest_list(request, id):
-        didjest = get_object_or_404(Didjest_year, pk = id)
-        didjest_list = didjest.didjest_set.all().order_by('-number')
-        context = {
-                'isLib': True,
-                'didjests': didjest_list
-        }
-        context.update(getDefaultContext(request))
-        return render(request, 'main/base_didjests.html', context)
+    # print "2"
+    # didjest = get_object_or_404(Didjest_year, pk = id)
+    # print "1"
+    didjests= Didjest.objects.all().order_by('-number')
+    context = {
+            'isLib': True,
+            'didjests': didjests
+    }
+    context.update(getDefaultContext(request))
+    return render(request, 'main/base_didjests.html', context)
 
 def didjest_year(request, id):
         didjest = get_object_or_404(Didjest_theme, pk = id)
