@@ -9,11 +9,11 @@
         <div class="row">
             <div class="col-md-15 offset4 publication">
                 <div class="row" style="margin-top:20px">
-                    <a href="/Didjest_theme/{{ prew }}"><div class = "col-md-7 btn btn-info">Назад</div></a>
+                    <a href="/Didjest_theme/{{ prew }}"><div class = "col-md-7 btn btn-info div_didjests_size">Назад</div></a>
                 </div>
                 {% for didjest in didjests %}
-                <div class="row" style="margin-top:20px">
-                    <a href="/media/{{didjest.file}}"><div class = "col-md-7 btn btn-info">{{didjest.name}}</div></a>
+                <div class="row " style="margin-top:20px">
+                    <a href="/media/{{didjest.file}}"><div class = "col-md-7 btn btn-info div_didjests_size">{{didjest.name}}</div></a>
                 </div>
                 {% endfor %}
             </div>

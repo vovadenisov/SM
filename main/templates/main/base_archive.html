@@ -8,12 +8,12 @@
     <div class="offset1" style="width:85%">
         <div class="row">
             <div class="col-md-15 offset4 publication">
-                <div class="row" style="margin-top:20px">
-                    <a href="/Didjest_theme/"><div class = "col-md-7 btn btn-info">Назад</div></a>
+                <div class="row div_didjests_size" style="margin-top:20px">
+                    <a href="/Didjest_theme/"><div class = "col-md-7 btn btn-info div_didjests_size">Назад</div></a>
                 </div>
                 {% for i in didjest_year %}
-                    <div class="row" style="margin-top:20px">
-                        <a href="/didjest_list/{{i.pk}}/"><div class = "col-md-7 btn btn-info">{{i.year}}</div></a>
+                    <div class="row div_didjests_size" style="margin-top:20px">
+                        <a href="/didjest_list/{{i.pk}}/"><div class = "col-md-7 btn btn-info div_didjests_size">{{i.year}}</div></a>
                     </div>
                 {% endfor %}
             </div>

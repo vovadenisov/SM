@@ -12,10 +12,16 @@ Version: номер-версии--необязательное-поле
      body {
     background-color: #C2D3E9;
      }
-     .publication{
-     margin-top:50px;
-  }
-     .back{
+
+   .div_didjests_size{
+        font-size: 14px;
+   }
+
+   .publication{
+       margin-top:50px;
+   }
+
+   .back{
 	background-color:white;
 }
      .offsetNews{
