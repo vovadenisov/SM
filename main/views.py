@@ -184,10 +184,11 @@ def news(request, news_id):
 
 def didjest_list(request, id):
     didjests= Didjest.objects.filter(year__pk = id).order_by('-number')
+
     context = {
             'isLib': True,
             'didjests': didjests,
-            'prew': id
+            'prew': Didjest_year.objects.filter(pk=id).first().theme
     }
     context.update(getDefaultContext(request))
     return render(request, 'main/base_didjests.html', context)
