@@ -188,7 +188,7 @@ def didjest_list(request, id):
     context = {
             'isLib': True,
             'didjests': didjests,
-            'prew': Didjest_year.objects.filter(pk=id).first().theme.pk
+            'prew': id
     }
     context.update(getDefaultContext(request))
     return render(request, 'main/base_didjests.html', context)
